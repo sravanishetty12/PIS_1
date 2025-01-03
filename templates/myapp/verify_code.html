@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Code</title>
+    <link rel="stylesheet" href="{% static 'css/verify_code.css' %}">
+</head>
+<body>
+    <div class="page-container">
+        <div class="background-section">
+            <!-- Optional: Add any background content or leave empty -->
+        </div>
+        <div class="verify-code-container">
+            <a href="{% url 'forgot_user_id' %}" class="back-link">Back to Login</a>
+            <h2>Verify Code</h2>
+            <p class="paragraph">An authentication code has been sent to your email</p>
+            <form action="" method="post" class="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Enter the code" required>
+                    <p class="resend-link">
+                        Didn’t receive a code? <a href="#">Resend</a>
+                    </p>
+                </div>
+                <button type="button" class="submit-button" onclick="window.location.href='{% url 'login' %}'">Verify</button>
+
+
+
+                
+            
+            </form>
+        </div>
+    </div>
+</body>
+</html>
